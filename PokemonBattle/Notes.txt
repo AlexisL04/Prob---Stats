@@ -1,0 +1,66 @@
+A pokemon Deck:
+
+    A deck is exactly 60 cards
+        It will be any combination of the following:
+
+        Pokemon cards - Charmander
+        Trainer Cards - Example Research
+        For both pokemon and trainer, you can play unlimited
+
+        Energy Cards - Example Fire
+        you can only play 1 energy per turn
+
+    Restriction: Must have at least 1 pokemon. 
+    
+
+Game Structure 
+    
+    You flip a coin to determine who goes first
+
+    Both players draw 7 cards.  
+        If any player does not have a pokemon in their hand, they must reveal their hand, return the cards into the deck,
+        and reshuffle their deck, and redraw 7 cards   
+        
+        The opponent may then draw 1 extra card 
+
+    The above may repeat until both players have a pokemon in their hand
+
+    Both players put down a pokemon (up to 6 of them)
+
+    Both players put 6 cards from the top of their deck to the side and call it the "prize" pile
+        These piles are independantly stacked, your own prize pile and your oponents prize pile
+
+
+A turn in pokemon 
+    Draw 1 card.
+
+    // Use a method to grab user input "1-5"
+    // Switch cases can be used for this
+    The repeat the following as needed:
+        play exactly 1 energy per turn      Case 1
+        Play trainer card.                  Case 2
+        Play a pokemon card                 Case 3
+    
+    Attack ends your turn                   Case 4
+
+    or just end your turn by "passing"      Case 5
+
+How to win a Game
+
+    // At the start of each turn, use a series of if statements to check if any of these conditions are met
+
+    You win the game, if you can take all 6 of your own prizes from the prize pile.
+        You get a single prize for every enemy pokemon you knock out ( from your own prize pile)
+
+        You will get to put the card into your hand.
+
+    Second win condition: your opponent has 0 pokemon in play. 
+
+    Last win condition: Your opponent can not draw a card because their deck is empty *At the start of their turn
+
+Caveats
+    You can retreat once per turn, you pay for it by discarding an energy card equal to the cost of the retreat
+
+    This is different than attacking, where you do not discard a card, unless the pokemon says so.
+
+    A pokemon gets energys attached to them
