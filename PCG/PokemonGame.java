@@ -7,35 +7,34 @@ import PCG.VS.VSPlayer;
 
 public class PokemonGame {
     
-    public static void main(String[] args) {
-
         VSPlayer PlayerGame = new VSPlayer();
         VSAI AIGame = new VSAI();
 
-        
-        System.out.println("Welcome to the Pokemon Card Game!");
-        System.out.println("You can play against a player or an AI.");
-        System.out.println("Please select an option:");
-        System.out.println("1. Player vs Player");
-        System.out.println("2. Player vs AI");
-        Scanner in = new Scanner(System.in);
-        
-        int choice = in.nextInt();
-
-        switch(choice) {
-            case 1:
-                System.out.println("You have selected Player vs Player.");
+        public void startGame() {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Welcome to the Pokemon Trading Card Game!");
+            System.out.println("Choose your game mode:");
+            System.out.println("1. Player vs Player");
+            System.out.println("2. Player vs AI");
+            int choice = scanner.nextInt();
+            
+            if (choice == 1) {
                 PlayerGame.gamePlayLoop();
-                break;
-            case 2:
-                System.out.println("You have selected Player vs AI.");
+            } else if (choice == 2) {
                 AIGame.gamePlayLoop();
-                break;
-            default:
-                System.out.println("Invalid choice. Please select 1 or 2.");
-                return;
+            } else {
+                System.out.println("Invalid choice. Please try again.");
+            }
+            
+            scanner.close();
         }
-        
-    }
+
+        public void rules() {
+            System.out.println("Game Rules:");
+            System.out.println("1. Each player starts with a deck of 60 cards.");
+            System.out.println("2. Players take turns drawing a card and playing them.");
+            System.out.println("3. Players can attack their opponent's Pokemon and use Trainer cards.");
+            System.out.println("4. The game ends when one player has no Pokemon left to play or their deck is empty");
+        }
 
 }
