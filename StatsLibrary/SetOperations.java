@@ -1,12 +1,26 @@
+/*
+ * Author: Alexis Lopez
+ * This class contains methods and variables needed to find the union, intersection, and complement of two arrays.
+ * The class can:
+ * - Find the union of two arrays
+ * - Find the intersection of two arrays
+ * - Find the complement of a subset using a sample set provided
+ */
+
 package StatsLibrary;
 import java.util.HashSet;
 
-public class SetOperations {
+public class SetOperations 
+{
     
-    //Unifies 2 arrays into a string utilizing a hashset to avoid duplicates
-    //parameters: 2 arrays of strings
-    //returns: a string of the union of the 2 arrays
-    public String arrayUnion(String[] arrayA, String[] arrayB){
+    /*
+     * Find the union of 2 arrays
+     * @param arrayA the first array
+     * @param arrayB the second array
+     * @return a string of the union of the 2 arrays
+     */
+    public String arrayUnion(String[] arrayA, String[] arrayB)
+    {
             
         //creates a hashset to store the union of the 2 arrays
         HashSet<String> union = new HashSet<String>();
@@ -28,22 +42,27 @@ public class SetOperations {
 
     }
 
-    //Finds the intersection of 2 different arrays utilizing a hashset to avoid duplicates. 
-    //parameters: 2 arrays of strings
-    //returns: a string of the intersection of the 2 arrays
-    public String arrayIntersect(String[] arrayA, String[] arrayB){
+    /*
+     * Find the intersection of 2 arrays
+     * @param arrayA the first array
+     * @param arrayB the second array
+     * @return a string of the intersection of the 2 arrays
+     */
+    public String arrayIntersect(String[] arrayA, String[] arrayB)
+    {
         
         //creates a hashset to store the intersection of the 2 arrays
         HashSet<String> intersect = new HashSet<String>();
         
         //loops through the first array
-        for (String elementA : arrayA){
+        for (String elementA : arrayA)
+        {
            
             //loops through the second array
             for (String elementB : arrayB)
             {
                 
-                //if the element from the first array mathces the element from the second array, then the element is added to the intersect set
+                //if the element from the first array matches the element from the second array, then the element is added to the intersect set
                 if (elementA.equals(elementB))
                 {
                     intersect.add(elementA);
@@ -57,16 +76,21 @@ public class SetOperations {
         return intersect.toString();
     }
 
-    //Finds the complement of 2 different arrays utilizing a hashset to avoid duplicates.
-    //parameters: 2 arrays of integers
-    //returns: a string of the complement of the 2 arrays
-    public String arrayComplement(int[] arrayA, int[] arrayB){
+    /*
+     * Find the compliment of a subset using a sample set provided
+     * @param arrayA the sample set
+     * @param arrayB the subset
+     * @return a string of the complement of the subset
+     */
+    public String arrayComplement(int[] arrayA, int[] arrayB)
+    {
         
         //creates a hashset to store the complement of the 2 arrays
         HashSet<Integer> complement = new HashSet<Integer>();
         
         // loops through the sample set user has provided 
-        for (int elementA : arrayA){
+        for (int elementA : arrayA)
+        {
             
             //sets the boolean to false, as we have not seen if the element exists in the subset
             boolean found = false;

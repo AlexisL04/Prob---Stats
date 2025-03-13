@@ -252,6 +252,82 @@ package StatsLibrary;
         return intersect;
     }
 
+    /*
+     * Checks if two events A and B are independent or not
+     * @param A Probability of event A
+     * @param B Probability of event B
+     * @return true if A and B are independent, false otherwise
+     */
+    public Boolean checkDependancy(double A, double B) 
+    {
+
+        // P(A AND B) = P(A) * P(B)
+        double AAndB = A * B;
+
+        // P(A|B) = P(A AND B) / P(B)
+        double probabilityAGivenB = AAndB / B;
+
+        // P(B|A) = P(A AND B) / P(A)
+        double probabilityBGivenA = AAndB / A;
+
+        // If P(A|B) = P(A), P(B|A) = P(B), or P(A AND B) = P(A) * P(A) then A and B are independent
+        if (probabilityAGivenB == A || probabilityBGivenA == B || AAndB == (A * B)) 
+        {
+            return true;
+        }
+        
+        // If neither of the conditions are met, then we return false, or that they are dependent
+        return false;
+
+    }
+
+    /*
+     * Calculates P(A AND B) for dependent or independent events
+     * @param A Probability of event A
+     * @param B Probability of event B
+     * @param AAndB Probability of event A AND B
+     * @return P(A AND B) for dependent or independent events
+     */
+    public double calculateDependancyIntersection(double A, double B, double AGivenB)
+    {
+
+        //Calcualtes the probability of A AND B if they are dependent
+        if (checkDependancy(A, B) == false)
+        {
+
+            return AGivenB * B;
+
+        }
+
+        return A * B;
+
+    }
+
+    /*
+     * Calculates P(A OR B) for dependent or independent events
+     * @param A Probability of event A
+     * @param B Probability of event B
+     * @param AGivenB Probability of event A given B
+     * @return P(A OR B) for dependent or independent events
+     */
+    public double calculateExclusivityUnion(double A, double B, double AGivenB) 
+    {
+
+        //Calculates the probability of A AND B
+        double AIntersectionB = calculateDependancyIntersection(A, B, AGivenB);
+        
+        //Calculates the probability of A OR B if they are mutually exclusive
+        if (AIntersectionB == 0)
+        {
+            //If the intersection is 0, then we can just add A and B together
+            return A + B;
+        }
+        
+        //Calculates the probability of A OR B if they are not mutually exclusive
+        //If the intersection is not 0, then we need to subtract the intersection from A and B
+        return A + B - calculateDependancyIntersection(A, B, AIntersectionB);
+
+    }
     
 
  }

@@ -1,4 +1,15 @@
+/*
+ * Author: Alexis Lopez
+ * The CombAndPerm class contains methods and variables needed to calculate the combinations and permutations of a given set of numbers.
+ * The class can:
+ * - Find the factorial of a given number
+ * - Find the combination of two given numbers
+ * - Find the permutation of two given numbers
+ * - Find the binomial distribution of three given numbers, the trials, successful trials, and the probability of success
+ */
+
 package StatsLibrary;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class CombAndPerm {
@@ -51,22 +62,24 @@ public class CombAndPerm {
     //@param n the number of trials
     //@param x the number of successful trials
     //@param p the probability of success on a single trial
-    //@return the binomial distribution of the two numbers
-    public BigInteger getBinomialDistribution(BigInteger n, BigInteger x, BigInteger p)
+    //@return the binomial distribution
+    public BigDecimal getBinomialDistribution(double n, double x, double p)
     {
-        // C(n/r)
+        // C(n choose x)
         // Find the combination of n and x
-        BigInteger a = getCombination(n, x);
+        BigInteger a = getCombination(BigInteger.valueOf((long)n), BigInteger.valueOf((long)x));
 
         // p^x
         // Find the power of p to x
-        BigInteger b = BigInteger.valueOf((long) Math.pow(p.doubleValue(), x.doubleValue()));
+        double b = Math.pow(p, x);
 
-        //  (q)^(n-r)
+        //  (q)^(n-x)
         // Find the power of q (probability of failure or 1-p) to n-x
-        BigInteger c = BigInteger.valueOf((long) Math.pow((1-p.doubleValue()), n.subtract(x).doubleValue()));
+        double c = Math.pow((1-p), (n-x));
 
-        return a.multiply(b).multiply(c);
+        BigDecimal result = new BigDecimal(a).multiply(BigDecimal.valueOf(b)).multiply(BigDecimal.valueOf(c));
+
+        return result;
 
     }
 

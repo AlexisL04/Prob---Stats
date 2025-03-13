@@ -1,3 +1,9 @@
+/*
+ * Author: Alexis Lopez
+ * The SetOperationsTest class contains the main method to test the methods in the SetOperations class.
+ * The class prints out the results of the union, intersection, and complement methods.
+ */
+
 package StatsLibrary;
 public class SetOperationsTest {
     

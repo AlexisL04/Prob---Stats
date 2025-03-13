@@ -1,50 +1,46 @@
-package MontyHall;
+/*
+ * Author: Alexis Lopez
+ * The Door class contains methods and variables needed to simulate the doors in the Monty Hall game.
+ * The class:
+ * - Initializes the doors to 0, or a dud prize
+ * - Sets the prize behind the doors
+ * - Returns the prize behind the doors
+ */
 
-import java.util.Random;
+package MontyHall;
 
 public class Door {
     
-    private String[] gameShow;
+    private int doorPrize;
 
-    public Door(){
-        gameShow = new String[3];
-    }
-
-    //This class should be able to set doors 1-3 with 1 prize and 2 duds. It uses rng to set one of the possibilites to one door
-    public void setDoor()
+    /*
+     * Constructor for the Door class, initializes the doorPrize to 0
+     * @param none
+     * @return void
+     */
+    public Door()
     {
-        String[] prizes = {"goat", "goat", "car"};
-
-        boolean[] isSet = new boolean[3];
-
-        Random random = new Random();
-
-        for(int i = 0; i < gameShow.length; i++)
-        {
-            int randomNum = random.nextInt(3);
-
-            while(isSet[randomNum])
-            {
-                randomNum = random.nextInt(3);
-            }
-
-            gameShow[randomNum] = prizes[i];
-            isSet[randomNum] = true;
-        }
-
+        doorPrize = 0;
     }
 
-    public String getDoor(int doorNum){
+    /*
+     * Sets the prize behind the doors
+     * @param prize the prize behind the door
+     * @return void
+     */
+    public void setDoor( int prize)
+    {
+        doorPrize = prize;
+    }
 
-        if (doorNum >= 0 && doorNum < gameShow.length)
-        {
-            return gameShow[doorNum];
-        }
-        else
-        {
-            return "Invalid Door";
-        }
-
+    /*
+     * Returns the prize behind the door
+     * @param doorNum the door number
+     * @return the prize behind the door
+     */
+    public int getDoor(int doorNum)
+    {
+        return doorPrize;
     }
 
 }
