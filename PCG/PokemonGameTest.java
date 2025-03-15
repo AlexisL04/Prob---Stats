@@ -8,12 +8,11 @@ public class PokemonGameTest {
         // Create a new PokemonGame instance
         PokemonGame game = new PokemonGame();
         
-        System.out.println("Would you like to play the game or read the rules?");
-        System.out.println("1. Play the game");
-        System.out.println("2. Read the rules");
+        System.out.println("Press 1 for game options or 2 for game rules:");
 
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
+        
         switch (choice) {
             case 1:
                 game.startGame();

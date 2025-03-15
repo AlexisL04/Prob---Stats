@@ -1,3 +1,7 @@
+/*
+ * Author: Alexis Lopez
+ * This class 
+ */
 package PCG;
 
 import java.util.Scanner;

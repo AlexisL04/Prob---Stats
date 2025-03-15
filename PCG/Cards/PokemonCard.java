@@ -1,12 +1,18 @@
+/*
+ * Author: Alexis Lopez
+ * This class is a child of the Card class and implements the PokemonCardInterface
+ * The PokemonCard class contains methods and variables needed to create a Pokemon card such as HP, attack, type, and name.
+ * The class also contains methods to add energy to the card, and find the weakness, resistance, and retreat cost of the card.
+ */
 package PCG.Cards;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
-
-public class PokemonCard extends Card {
+public class PokemonCard extends Card implements PokemonCardInterface 
+{
     
+    // All the variables needed to create a pokemon card
     private String name;
     private String type;
     private int hp;
@@ -22,108 +28,256 @@ public class PokemonCard extends Card {
     private String resistance;
     private HashMap<String, Integer> retreatCost;
 
-    public PokemonCard() {
+    /*
+     * Constructor for the PokemonCard class, initializes the card type to "Pokemon" as well as creating arraylists and hashmaps for itself
+     * @param none
+     * @return none
+     */
+    public PokemonCard() 
+    {
 
-        setCardType("Pokemon");
+        super.setCardType("Pokemon");
         attatchedEnergy = new ArrayList<>();
         requiredEnergy = new HashMap<>();
 
     }
 
-
-    public String getName(){
+    /*
+     * Gets the name of the pokemon
+     * @param none
+     * @return the name of the pokemon as a string
+     */
+    public String getName()
+    {
         return name;
     }
 
-    public String getType(){
+    /*
+     * Gets the type of pokemon
+     * @param none
+     * @return the type of the pokemon as a string
+     */
+    public String getType()
+    {
         return type;
     }
 
-    public int getHP(){
+    /*
+     * Gets the HP of the pokemon
+     * @param none
+     * @return the HP of the pokemon as an int
+     */
+    public int getHP()
+    {
         return hp;
     }
 
-    public String getAtkType(){
+    /*
+     * Gets the type of attack
+     * @param none
+     * @return the attack type as a string
+     */
+    public String getAtkType()
+    {
         return atkType;
     }
 
-    public int getAttack(){
+    /*
+     * Gets the attack amount of the pokemon
+     * @param none
+     * @return the attack damage as an int
+     */
+    public int getAttack()
+    {
         return attack;
     }
 
-    public String getWeakness(){
+    /*
+     * Gets the weakness of the pokemon
+     * @param none
+     * @return the weakness of the pokemon as a string
+     */
+    public String getWeakness()
+    {
         return weakness;
     }
 
-    public String getResistance(){
+    /*
+     * Gets the resistance of the pokemon
+     * @param none
+     * @return the resistance of the pokemon in a String
+     */
+    public String getResistance()
+    {
         return resistance;
     }
 
-    public HashMap<String, Integer> getRetreatCost(){
+    /*
+     * Gets the retreat cost of the pokemon
+     * @param none
+     * @return the retreat cost of the pokemon as a hashmap
+     */
+    public HashMap<String, Integer> getRetreatCost()
+    {
         return retreatCost;
     }
 
-    public String getAtkName(){
+    /*
+     * Gets the name of the attack
+     * @param none
+     * @return the name of the attack as a string
+     */
+    public String getAtkName()
+    {
         return atkName;
     }
 
-    public String getAtkDesc(){
+    /*
+     * Gets the description of the attack
+     * @param none
+     * @return the description of the attack as a string
+     */
+    public String getAtkDesc()
+    {
         return atkDesc;
     }
 
-    public HashMap<String, Integer> getRequiredEnergy(){
+    /*
+     * Gets the required energy of the pokemon
+     * @param none
+     * @return the required energy of the pokemon as a hashmap
+     */
+    public HashMap<String, Integer> getRequiredEnergy()
+    {
         return requiredEnergy;
     }
 
-    public ArrayList<EnergyCard> getAttatchedEnergy(){
+    /*
+     * Gets the attached energy of the pokemon
+     * @param none
+     * @return the attached energy of the pokemon as an arraylist of EnergyCards
+     */
+    public ArrayList<EnergyCard> getAttatchedEnergy()
+    {
         return attatchedEnergy;
     }
 
-    public void setName(String name){
+    /*
+     * Sets the name of the pokemon
+     * @param name the name we want to set as a string
+     * @return none
+     */
+    public void setName(String name)
+    {
         this.name = name;
     }
 
-    public void setType(String type){
+    /*
+     * Sets the type of pokemon
+     * @param type The type we want to set as a String
+     * @return none
+     */
+    public void setType(String type)
+    {
         this.type = type;
     }
 
+    /*
+     * Sets the HP of the pokemon
+     * @param hp the HP we want to set as an int
+     * @return none
+     */
     public void setHP(int hp){
         this.hp = hp;
     }
 
-    public void setAtkType(String atkType){
+    /*
+     * Sets the type of attack
+     * @param atkType the type of attack we want to set as a String
+     * @return none
+     */
+    public void setAtkType(String atkType)
+    {
         this.atkType = atkType;
     }
 
-    public void setAttack(int attack){
+    /*
+     * Sets the attack amount of the pokemon
+     * @param attack the attack amount we want to set as an int
+     * @return none
+     */
+    public void setAttack(int attack)
+    {
         this.attack = attack;
     }
 
-    public void setWeakness(String weakness){
+    /*
+     * Sets the weakness of the pokemon
+     * @param weakness the weakness we want to set as a String
+     * @return none
+     */
+    public void setWeakness(String weakness)
+    {
         this.weakness = weakness;
     }
 
-    public void setResistance(String resistance){
+    /*
+     * Sets the resistance of the pokemon
+     * @param resistance the resistance we want to set as a String
+     * @return none
+     */
+    public void setResistance(String resistance)
+    {
         this.resistance = resistance;
     }
 
-    public void setRetreatCost(HashMap<String, Integer> retreatCost){
+    /*
+     * Sets the retreat cost of the pokemon
+     * @param retreatCost the retreat cost we want to set as a hashmap
+     * @return none
+     */
+    public void setRetreatCost(HashMap<String, Integer> retreatCost)
+    {
         this.retreatCost = retreatCost;
     }
 
-    public void setAtkName(String atkName){
+    /*
+     * Sets the name of the attack
+     * @param atkName the name we want to set as a String
+     * @return none
+     */
+    public void setAtkName(String atkName)
+    {
         this.atkName = atkName;
     }
 
-    public void setAtkDesc(String atkDesc){
+    /*
+     * Sets the description of the attack
+     * @param atkDesc the description we want to set as a String
+     * @return none
+     */
+    public void setAtkDesc(String atkDesc)
+    {
         this.atkDesc = atkDesc;
     }
 
-    public void setRequiredEnergy(HashMap<String, Integer> requiredEnergy){
+    /*
+     * Sets the required energy of the pokemon
+     * @param requiredEnergy the required energy we want to set as a hashmap
+     * @return none
+     */
+    public void setRequiredEnergy(HashMap<String, Integer> requiredEnergy)
+    {
         this.requiredEnergy = requiredEnergy;
     }
 
-    public void addEnergy(Card energy) {
+    /*
+     * Allows us to add energy to the pokemon
+     * @param energy the energy we want to add as a Card
+     * @return none
+     */
+    public void addEnergy(Card energy) 
+    {
         attatchedEnergy.add((EnergyCard)energy);
     }
 

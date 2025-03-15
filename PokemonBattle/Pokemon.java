@@ -1,12 +1,18 @@
+/*
+ * Author: Alexis Lopez
+ * This class represents a Pokemon and its stats.
+ */
 package PokemonBattle;
 
 public class Pokemon {
     
+    // Instance variables for Pokemon
     private int hp;
     private int attack;
     private int defense;
     private int speed;
 
+    //Getters and setters for pokemon
     public int getHp(){
         return hp;
     }

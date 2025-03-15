@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class MulliganTest {
     
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) 
+    {
         
         PokemonGame game = new PokemonGame();
 
@@ -37,18 +37,20 @@ public class MulliganTest {
 
             double probability = (count * 100.0) / 10000;
 
-            System.out.println(probability);
+            System.out.println("The probability for a brick (all rare candies in prize pile is: )" + probability);
         }
             
         
-        /*
-        for (int i = 0; i < 60; i++){
+        
+        for (int i = 0; i < 60; i++)
+        {
             int x = 0 + i;
             int y = 60 - i;
 
             int count = 0;
             
-            for (int j = 0; j < 10000; j++){
+            for (int j = 0; j < 10000; j++)
+            {
                 
                 ArrayList<String> deck = game.populateDeck(x, y);
                 ArrayList<String> hand = game.drawCard(deck);
@@ -64,12 +66,9 @@ public class MulliganTest {
 
             System.out.println(probability);
 
-            //System.out.println("the chance for a mulligan is " + probability + "% for " + x + " pokemon and " + y + " energy");
+            System.out.println("the chance for a mulligan is " + probability + "% for " + x + " pokemon and " + y + " energy");
 
         }
-
-        */
-
 
     }
 

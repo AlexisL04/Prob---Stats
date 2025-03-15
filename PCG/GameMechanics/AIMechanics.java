@@ -1,3 +1,11 @@
+/*
+ * Author: Alexis Lopez
+ * This class handles all of the AI's game mechanics for the Pokemon card game.
+ * It extends the PlayerMechanics class and the method contains the AI's logic for playing the game.
+ * The AI will select the first available card for each stage of the game, such as playing a pokemon card, attatching an energy
+ * playing a trainer card, and attacking if possible
+ */
+
 package PCG.GameMechanics;
 
 import PCG.Cards.Card;
@@ -28,10 +36,13 @@ public class AIMechanics extends PlayerMechanics {
             Card selectedCard;
             int randomIndex;
 
-            do {
+            // Randomly select a Pokemon card from the AI's hand to be the active Pokemon
+            do 
+            {
                 randomIndex = (int) (Math.random() * player.getPlayerHand().size());
                 selectedCard = player.getPlayerHand().get(randomIndex);
-            } while (!(selectedCard instanceof PokemonCard));
+            } 
+            while (!(selectedCard instanceof PokemonCard));
             
             player.setPlayerActive((PokemonCard) selectedCard);
             player.getPlayerHand().remove(randomIndex);
@@ -40,8 +51,10 @@ public class AIMechanics extends PlayerMechanics {
         System.out.println("AI has selected " + player.getPlayerActive().getName() + " as the active Pokemon.");
 
         // AI's logic for playing an energy card
-        for(int i = 0; i < player.getPlayerHand().size(); i++){
-            if(player.getPlayerHand().get(i) instanceof EnergyCard){
+        for(int i = 0; i < player.getPlayerHand().size(); i++)
+        {
+            if(player.getPlayerHand().get(i) instanceof EnergyCard)
+            {
                 
                 AICards.playEnergy(player, i);
                 break;
@@ -50,10 +63,10 @@ public class AIMechanics extends PlayerMechanics {
         }
 
         //Ai's logic for playing a trainer card
-
-        // AI's logic for playing an energy card
-        for(int i = 0; i < player.getPlayerHand().size(); i++){
-            if(player.getPlayerHand().get(i) instanceof TrainerCard){
+        for(int i = 0; i < player.getPlayerHand().size(); i++)
+        {
+            if(player.getPlayerHand().get(i) instanceof TrainerCard)
+            {
                 
                 AICards.playTrainer(player, i);
                 break;

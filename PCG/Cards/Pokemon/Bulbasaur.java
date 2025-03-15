@@ -1,3 +1,8 @@
+/*
+ * Author: Alexis Lopez
+ * This class is a child of the PokemonCard class and contains methods and variables needed to create a Bulbasaur card.
+ */
+
 package PCG.Cards.Pokemon;
 
 import java.util.HashMap;
@@ -7,10 +12,12 @@ public class Bulbasaur extends PokemonCard {
 
     public Bulbasaur(){
 
+        //Creates a hashmap and sets the required energy
         HashMap<String, Integer> requiredEnergy = new HashMap<>();
         requiredEnergy.put("Grass", 1);
         requiredEnergy.put("Normal", 2);
 
+        //Creates a hashmap and sets the retreat cost
         HashMap<String, Integer> retreatCost = new HashMap<>();
         requiredEnergy.put("Normal", 2);
 
@@ -30,8 +37,5 @@ public class Bulbasaur extends PokemonCard {
         setRetreatCost(retreatCost);
     }
 
-    public int vineWhip() {
-        return getAttack();
-    }
     
 }

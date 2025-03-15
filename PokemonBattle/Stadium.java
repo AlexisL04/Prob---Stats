@@ -1,7 +1,18 @@
+/*
+ * Author: Alexis Lopez
+ * This class represents a Stadium where two Pokemon can battle.
+ */
 package PokemonBattle;
 
 public class Stadium {
     
+    /*
+     * Method to battle two pokemon
+     * The pokemon with the higher speed attacks first, loser is determined by which pokemon has 0 or less HP
+     * @parameter p1 the first pokemon
+     * @parameter p2 the second pokemon
+     * @return void
+     */
     public void battle(Pokemon p1, Pokemon p2){
 
         while (p1.getHp() > 0 && p2.getHp() > 0){

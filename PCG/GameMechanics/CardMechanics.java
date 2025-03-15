@@ -1,3 +1,9 @@
+/*
+ * Author: Alexis Lopez
+ * This class handles the mechanics of the game, including deck population, shuffling, drawing cards, and playing cards.
+ * It also includes methods for checking energy requirements and handling attacks.
+ */
+
 package PCG.GameMechanics;
 
 import java.util.ArrayList;
