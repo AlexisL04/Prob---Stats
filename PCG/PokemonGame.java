@@ -11,34 +11,63 @@ import PCG.VS.VSPlayer;
 
 public class PokemonGame {
     
-        VSPlayer PlayerGame = new VSPlayer();
-        VSAI AIGame = new VSAI();
+    VSPlayer PlayerGame = new VSPlayer();
+    VSAI AIGame = new VSAI();
 
-        public void startGame() {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Welcome to the Pokemon Trading Card Game!");
-            System.out.println("Choose your game mode:");
-            System.out.println("1. Player vs Player");
-            System.out.println("2. Player vs AI");
-            int choice = scanner.nextInt();
+    public void startGame() 
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to the Pokemon Trading Card Game!");
+        System.out.println("Choose your game mode:");
+        System.out.println("1. Player vs Player");
+        System.out.println("2. Player vs AI");
+        int choice = scanner.nextInt();
             
-            if (choice == 1) {
-                PlayerGame.gamePlayLoop();
-            } else if (choice == 2) {
-                AIGame.gamePlayLoop();
-            } else {
-                System.out.println("Invalid choice. Please try again.");
-            }
+        if (choice == 1) 
+        {
+            PlayerGame.gamePlayLoop();
+        } 
+        else if (choice == 2) 
+        {
+            AIGame.gamePlayLoop();
+        } 
+        
+        else 
+        {
+            System.out.println("Invalid choice. Please try again.");
+        }
             
             scanner.close();
-        }
 
-        public void rules() {
-            System.out.println("Game Rules:");
-            System.out.println("1. Each player starts with a deck of 60 cards.");
-            System.out.println("2. Players take turns drawing a card and playing them.");
-            System.out.println("3. Players can attack their opponent's Pokemon and use Trainer cards.");
-            System.out.println("4. The game ends when one player has no Pokemon left to play or their deck is empty");
+    }
+
+    public void rules() 
+    {
+        System.out.println("Game Rules:");
+        System.out.println("1. Each player starts with a deck of 60 cards.");
+        System.out.println("2. Players take turns drawing a card and playing them.");
+        System.out.println("3. Players can attack their opponent's Pokemon and use Trainer cards.");
+        System.out.println("4. The game ends when one player has no Pokemon left to play or their deck is empty");
+    }
+
+    public void playerChoice()
+    {
+        System.out.println("Press 1 for game options or 2 for game rules:");
+
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+        
+        switch (choice) {
+            case 1:
+                startGame();
+                break;
+            case 2:
+                rules();
+                break;
+            default:
+                System.out.println("Invalid choice. Please try again.");
+                break;
         }
+    }
 
 }
