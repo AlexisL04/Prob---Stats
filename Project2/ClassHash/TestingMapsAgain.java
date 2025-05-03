@@ -1,4 +1,4 @@
-package Project2.Hashmap2;
+package Project2.ClassHash;
 
 import java.util.ArrayList;
 import java.util.HashMap;

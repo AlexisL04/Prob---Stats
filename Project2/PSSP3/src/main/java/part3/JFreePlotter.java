@@ -1,4 +1,4 @@
-package part3;
+package Project2.PSSP3.src.main.java.part3;
 
 import java.io.IOException;
 import java.util.Scanner;

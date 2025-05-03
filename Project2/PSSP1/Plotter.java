@@ -1,4 +1,4 @@
-package Project2.Part1;
+package Project2.PSSP1;
 
 import java.io.FileWriter;
 import java.io.IOException;
