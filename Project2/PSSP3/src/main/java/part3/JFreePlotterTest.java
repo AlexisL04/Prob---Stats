@@ -1,4 +1,10 @@
-package Project2.PSSP3.src.main.java.part3;
+/*
+ * Author: Alexis Lopez
+ * 
+ * This class tests the JFreePlotter class by callng the createData method.
+ */
+
+package part3;
 
 import java.io.IOException;
 

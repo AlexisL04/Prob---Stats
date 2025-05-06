@@ -1,39 +1,32 @@
 /*
  * Author: Alexis Lopez
  * 
- * This class is used to salt the y values of a CSV file by adding or subtracting a random number to each value.
- * It then writes the salted data to a new CSV file.
- * 
- * Originally, I had this class and the previous (Plotter) combine the read and writing of the csv file into one class
- * But as stated in class, since this is used so often, it would be more efficient to have a seperate class handle those tasks
- * It wasn't until i finished the JFreeHandler classes that i went back to update this code to utilize the CSVHandler class
+ * This class handles salting data by randomly adding or subtracting the original y values by a random number between a given range.
+ * It then procceeds to write the salted data to a new CSV file and plot it using JFreeChart.
  */
-package Project2.PSSP1;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+package part3;
+
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Random;
 
-public class Salting 
-{
+public class JFreeSalter {
 
+   
     public void saltData(String fileName, String output, int min, int max) throws IOException
     {
         
-        // Creates a new CSVHandler object to read and write CSV files
-        CSVHandler csvHandler = new CSVHandler();
-
+        // Creates a new JFreeHandler object to handle the CSV file and plotting
         // Creates a new random object to generate random numbers
+        JFreeHandler jFreeHandler = new JFreeHandler();
         Random rand = new Random();
         
         //Adds the .csv extension to the file name and output file name
         fileName += ".csv";
         output += ".csv";
 
-        int[][] csvData = csvHandler.readCSV(fileName);
+        // Reads the CSV file and stores the x and y values in a 2D array
+        int[][] csvData = jFreeHandler.readCSV(fileName);
 
         // Gets the x and y values from the 2D array
         int[] xValues = csvData[0];
@@ -67,8 +60,15 @@ public class Salting
 
         }
 
+
         // Writes the x and salted y values to a new CSV file
-        csvHandler.writeCSV(xValues, saltedYValues, output);
+        jFreeHandler.writeCSV(xValues, saltedYValues, output);
+
+        // Plots the salted data using JFreeChart
+        jFreeHandler.plotCSV(output);
         
     }
+
+    
+
 }

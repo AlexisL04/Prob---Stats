@@ -1,3 +1,12 @@
+/*
+ * Author: Alexis Lopez
+ * 
+ * This class is a test for hashmaps as we have gone over in class.
+ * 
+ * This was pretty fun as my professor for DSA 1 briefly covered the topic rather than going into detail about it.
+ * Although I have used hashmaps previously for this course, I have had to research the topic in order to understand how I can implement it
+ * into my code. This was the first time I have really had the chance to properly learn about it in a lecture and ask questions about it.
+ */
 package Project2.ClassHash;
 
 import java.util.ArrayList;

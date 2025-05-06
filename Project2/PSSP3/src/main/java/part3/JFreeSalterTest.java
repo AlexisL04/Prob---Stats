@@ -1,33 +1,32 @@
 /*
  * Author: Alexis Lopez
  * 
- * This class tests the Salting class by calling the saltData method and prompting the user for input
+ * This class tests the JFreeSalter class by calling the saltData method and prompting the user for input
  */
-package Project2.PSSP1;
+package part3;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-public class SaltingTest {
+public class JFreeSalterTest {
     
     public static void main(String[] args) throws IOException {
-        Salting salting = new Salting();
+        JFreeSalter salter = new JFreeSalter();
 
         Scanner in = new Scanner(System.in);
-
+        
         System.out.println("Enter the name of the CSV file to salt: ");
-        String inputFile = in.nextLine();
-        
+        String fileName = in.nextLine();
         System.out.println("What would you like to call the output file?");
-        String outputFile = in.nextLine();
-        
+        String output = in.nextLine();
         System.out.println("Enter the minimum value for salting: ");
         int min = in.nextInt();
-        
         System.out.println("Enter the maximum value for salting: ");
         int max = in.nextInt();
+        
+        in.close();
 
-        salting.saltData(inputFile, outputFile, min, max);
+        salter.saltData(fileName, output, min, max);
     }
 
 }

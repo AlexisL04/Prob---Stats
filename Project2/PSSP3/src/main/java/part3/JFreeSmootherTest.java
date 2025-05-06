@@ -1,17 +1,18 @@
 /*
  * Author: Alexis Lopez
  * 
- * This class tests the Smoother class by calling the smoothData method and prompting the user for input
+ * This class tests the JFreeSmoother class by calling the smoothData method and prompting the user for input
  */
-package Project2.PSSP1;
+package part3;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-public class SmootherTest {
+public class JFreeSmootherTest {
     
     public static void main(String[] args) throws IOException {
-        Smoother smoother = new Smoother();
+        JFreeSmoother smoother = new JFreeSmoother();
+
         Scanner in = new Scanner(System.in);
 
         System.out.println("Enter the name of the file to smooth: ");
@@ -20,8 +21,12 @@ public class SmootherTest {
         String output = in.nextLine();
         System.out.println("Enter the window size: ");
         int window = in.nextInt();
-
+        
+        
         smoother.smoothData(fileName, window, output);
+        
+        in.close();
+
     }
 
 }

@@ -1,21 +1,19 @@
+/* 
+ * Author: Alexis Lopez
+ * 
+ * This class tests the Plotter class by calling the createData method.
+*/
 package Project2.PSSP1;
+
+import java.io.IOException;
 
 public class PlotterTest 
 {
     
-    public static void main(String[] args) 
+    public static void main(String[] args) throws IOException 
     {
         Plotter plotter = new Plotter();
-        
-        try 
-        {
-            String fileName = plotter.convertToCSV();
-            System.out.println("File written to: " + fileName);
-        } 
-        catch (Exception e) 
-        {
-            System.err.println("Error: " + e.getMessage());
-        }
+        plotter.dataPlotter();
     }
 
 }
